@@ -58,9 +58,7 @@ export default function AuthForm() {
       <Card className="w-full max-w-md shadow-xl">
         <CardContent className="p-6 sm:p-8">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-primary to-purple-secondary rounded-2xl mb-4">
-              <Star className="text-white text-2xl" />
-            </div>
+            <img src="/logo.svg" alt="AI Post Generator" className="w-16 h-16 mb-4" />
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
               {isLogin ? "AI Post Generator" : "Create Account"}
             </h1>

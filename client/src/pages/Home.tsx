@@ -29,9 +29,7 @@ export default function Home() {
       <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-purple-primary rounded-xl mr-2 sm:mr-3">
-              <Star className="text-white text-base sm:text-lg" />
-            </div>
+            <img src="/logo-small.svg" alt="AI Post Generator" className="w-8 h-8 sm:w-10 sm:h-10 mr-2 sm:mr-3" />
             <h1 className="text-lg sm:text-xl font-bold text-gray-900">AI Post Generator</h1>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
