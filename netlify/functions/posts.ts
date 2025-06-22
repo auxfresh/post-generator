@@ -6,12 +6,20 @@ declare global {
   var netlifyPosts: any[];
   var netlifyUsers: any[];
   var netlifyCurrentPostId: number;
+  var netlifyCurrentUserId: number;
 }
 
 if (!global.netlifyPosts) {
   global.netlifyPosts = [];
+}
+if (!global.netlifyUsers) {
   global.netlifyUsers = [];
+}
+if (!global.netlifyCurrentPostId) {
   global.netlifyCurrentPostId = 1;
+}
+if (!global.netlifyCurrentUserId) {
+  global.netlifyCurrentUserId = 1;
 }
 
 export const handler: Handler = async (event, context) => {
@@ -38,13 +46,20 @@ export const handler: Handler = async (event, context) => {
     };
   }
 
-  const user = global.netlifyUsers.find(u => u.firebaseUid === firebaseUid);
+  let user = global.netlifyUsers.find(u => u.firebaseUid === firebaseUid);
   if (!user) {
-    return {
-      statusCode: 404,
-      headers,
-      body: JSON.stringify({ message: 'User not found' }),
+    // Create user if it doesn't exist
+    if (!global.netlifyCurrentUserId) {
+      global.netlifyCurrentUserId = 1;
+    }
+    user = {
+      id: global.netlifyCurrentUserId++,
+      firebaseUid: firebaseUid,
+      email: `user-${firebaseUid}@example.com`, // Fallback email
+      displayName: null,
+      createdAt: new Date().toISOString(),
     };
+    global.netlifyUsers.push(user);
   }
 
   try {
