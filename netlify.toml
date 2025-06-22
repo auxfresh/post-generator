@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build:netlify"
+  command = "vite build -c vite.config.netlify.ts"
 
 [functions]
   directory = "netlify/functions"
