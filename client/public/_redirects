@@ -1,0 +1,5 @@
+/api/users /.netlify/functions/users 200
+/api/generate-post /.netlify/functions/generate-post 200
+/api/posts /.netlify/functions/posts 200
+/api/posts/* /.netlify/functions/posts 200
+/* /index.html 200
